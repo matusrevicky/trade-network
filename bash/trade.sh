@@ -1214,28 +1214,28 @@ function generateChannelArtifacts() {
 
   if [ "$DEV_MODE" = false ] ; then
     echo
-    echo "#####################################################################"
-    echo "#######   Generating anchor peer update for ExporterOrg    ##########"
-    echo "#####################################################################"
+    echo "#########################################################################"
+    echo "#######   Generating anchor peer update for HeatingPlantOrg    ##########"
+    echo "#########################################################################"
     set -x
-    configtxgen -profile $CHANNEL_PROFILE -outputAnchorPeersUpdate ./channel-artifacts/${CHANNEL_NAME}/ExporterOrgMSPanchors.tx -asOrg ExporterOrg -channelID $CHANNEL_NAME
+    configtxgen -profile $CHANNEL_PROFILE -outputAnchorPeersUpdate ./channel-artifacts/${CHANNEL_NAME}/HeatingPlantOrgMSPanchors.tx -asOrg HeatingPlantOrg -channelID $CHANNEL_NAME
     res=$?
     set +x
     if [ $res -ne 0 ]; then
-      echo "Failed to generate anchor peer update for ExporterOrg..."
+      echo "Failed to generate anchor peer update for HeatingPlantOrg..."
       exit 1
     fi
 
     echo
-    echo "#####################################################################"
-    echo "#######   Generating anchor peer update for ImporterOrg    ##########"
-    echo "#####################################################################"
+    echo "###############################################################################"
+    echo "#######   Generating anchor peer update for HousingCooperativeOrg    ##########"
+    echo "###############################################################################"
     set -x
-    configtxgen -profile $CHANNEL_PROFILE -outputAnchorPeersUpdate ./channel-artifacts/${CHANNEL_NAME}/ImporterOrgMSPanchors.tx -asOrg ImporterOrg -channelID $CHANNEL_NAME
+    configtxgen -profile $CHANNEL_PROFILE -outputAnchorPeersUpdate ./channel-artifacts/${CHANNEL_NAME}/HousingCooperativeOrgMSPanchors.tx -asOrg HousingCooperativeOrg -channelID $CHANNEL_NAME
     res=$?
     set +x
     if [ $res -ne 0 ]; then
-      echo "Failed to generate anchor peer update for ImporterOrg..."
+      echo "Failed to generate anchor peer update for HousingCooperativeOrg..."
       exit 1
     fi
 
@@ -1255,19 +1255,6 @@ function generateChannelArtifacts() {
       fi
     fi
 
-    echo
-    echo "######################################################################"
-    echo "#######   Generating anchor peer update for RegulatorOrg    ##########"
-    echo "######################################################################"
-    set -x
-    configtxgen -profile $CHANNEL_PROFILE -outputAnchorPeersUpdate ./channel-artifacts/${CHANNEL_NAME}/RegulatorOrgMSPanchors.tx -asOrg RegulatorOrg -channelID $CHANNEL_NAME
-    res=$?
-    set +x
-    if [ $res -ne 0 ]; then
-      echo "Failed to generate anchor peer update for RegulatorOrg..."
-      exit 1
-    fi
-    echo
   fi
 }
 

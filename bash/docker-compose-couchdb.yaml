@@ -8,8 +8,8 @@ networks:
   trade:
 
 services:
-  couchdb-peer0.exporterorg.trade.com:
-    container_name: couchdb-peer0.exporterorg.trade.com
+  couchdb-peer0.housingcooperativeorg.sensor.com:
+    container_name: couchdb-peer0.housingcooperativeorg.sensor.com
     image: couchdb:2.3
     platform: $PLATFORM
     # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
@@ -24,20 +24,20 @@ services:
     networks:
       - trade
 
-  peer0.exporterorg.trade.com:
+  peer0.housingcooperativeorg.sensor.com:
     environment:
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
-      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb-peer0.exporterorg.trade.com:5984
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb-peer0.housingcooperativeorg.sensor.com:5984
       # The CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME and CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD
       # provide the credentials for ledger to connect to CouchDB.  The username and password must
       # match the username and password set for the associated CouchDB.
       - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
       - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
     depends_on:
-      - couchdb-peer0.exporterorg.trade.com
+      - couchdb-peer0.housingcooperativeorg.sensor.com
 
-  couchdb-peer0.importerorg.trade.com:
-    container_name: couchdb-peer0.importerorg.trade.com
+  couchdb-peer0.heatingplantorg.sensor.com:
+    container_name: couchdb-peer0.heatingplantorg.sensor.com
     image: couchdb:2.3
     platform: $PLATFORM
     # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
@@ -52,42 +52,16 @@ services:
     networks:
       - trade
 
-  peer0.importerorg.trade.com:
+  peer0.heatingplantorg.sensor.com:
     environment:
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
-      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb-peer0.importerorg.trade.com:5984
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb-peer0.heatingplantorg.sensor.com:5984
       # The CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME and CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD
       # provide the credentials for ledger to connect to CouchDB.  The username and password must
       # match the username and password set for the associated CouchDB.
       - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
       - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
     depends_on:
-      - couchdb-peer0.importerorg.trade.com
+      - couchdb-peer0.heatingplantorg.sensor.com
 
-  couchdb-peer0.regulatororg.trade.com:
-    container_name: couchdb-peer0.regulatororg.trade.com
-    image: couchdb:2.3
-    platform: $PLATFORM
-    # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
-    # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
-    environment:
-      - COUCHDB_USER=
-      - COUCHDB_PASSWORD=
-    # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
-    # for example map it to utilize Fauxton User Interface in dev environments.
-    ports:
-      - "7984:5984"
-    networks:
-      - trade
 
-  peer0.regulatororg.trade.com:
-    environment:
-      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
-      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb-peer0.regulatororg.trade.com:5984
-      # The CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME and CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD
-      # provide the credentials for ledger to connect to CouchDB.  The username and password must
-      # match the username and password set for the associated CouchDB.
-      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
-      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
-    depends_on:
-      - couchdb-peer0.regulatororg.trade.com

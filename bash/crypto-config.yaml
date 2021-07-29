@@ -7,10 +7,10 @@
 # ---------------------------------------------------------------------------
 OrdererOrgs:
   # ---------------------------------------------------------------------------
-  # TradeOrderer
+  # SensorOrderer
   # ---------------------------------------------------------------------------
-  - Name: TradeOrderer
-    Domain: trade.com
+  - Name: SensorOrderer
+    Domain: sensor.com
     EnableNodeOUs: true
     # ---------------------------------------------------------------------------
     # "Specs" - See PeerOrgs below for complete description
@@ -23,10 +23,10 @@ OrdererOrgs:
 # ---------------------------------------------------------------------------
 PeerOrgs:
   # ---------------------------------------------------------------------------
-  # ExporterOrg
+  # HeatingPlantOrg
   # ---------------------------------------------------------------------------
-  - Name: ExporterOrg
-    Domain: exporterorg.trade.com
+  - Name: HeatingPlantOrg
+    Domain: heatingplantorg.sensor.com
     EnableNodeOUs: true
     # ---------------------------------------------------------------------------
     # "Specs"
@@ -73,32 +73,13 @@ PeerOrgs:
     Users:
       Count: 2
   # ---------------------------------------------------------------------------
-  # ImporterOrg: See "ExporterOrg" for full specification
+  # HousingCooperativeOrg: See "ExporterOrg" for full specification
   # ---------------------------------------------------------------------------
-  - Name: ImporterOrg
-    Domain: importerorg.trade.com
+  - Name: HousingCooperativeOrg
+    Domain: housingcooperativeorg.sensor.com
     EnableNodeOUs: true
     Template:
       Count: 1
     Users:
       Count: 2
-  # ---------------------------------------------------------------------------
-  # CarrierOrg: See "ExporterOrg" for full specification
-  # ---------------------------------------------------------------------------
-  - Name: CarrierOrg
-    Domain: carrierorg.trade.com
-    EnableNodeOUs: true
-    Template:
-      Count: 1
-    Users:
-      Count: 1
-  # ---------------------------------------------------------------------------
-  # RegulatorOrg: See "ExporterOrg" for full specification
-  # ---------------------------------------------------------------------------
-  - Name: RegulatorOrg
-    Domain: regulatororg.trade.com
-    EnableNodeOUs: true
-    Template:
-      Count: 1
-    Users:
-      Count: 1
+
