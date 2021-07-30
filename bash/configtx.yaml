@@ -256,8 +256,8 @@ Orderer: &OrdererDefaults
         Consenters:
             - Host: orderer.sensor.com
               Port: 7050
-              ClientTLSCert: crypto-config/ordererOrganizations/trade.com/orderers/orderer.sensor.com/tls/server.crt
-              ServerTLSCert: crypto-config/ordererOrganizations/trade.com/orderers/orderer.sensor.com/tls/server.crt
+              ClientTLSCert: crypto-config/ordererOrganizations/sensor.com/orderers/orderer.sensor.com/tls/server.crt
+              ServerTLSCert: crypto-config/ordererOrganizations/sensor.com/orderers/orderer.sensor.com/tls/server.crt
 
     # Organizations is the list of orgs which are defined as participants on
     # the orderer side of the network
@@ -371,7 +371,7 @@ Profiles:
             OrdererType: kafka
             Kafka:
                 Brokers:
-                - kafka.trade.com:9092
+                - kafka.sensor.com:9092
 
             Organizations:
             - *SensorOrdererOrg
@@ -402,8 +402,8 @@ Profiles:
                 Consenters:
                 - Host: orderer.sensor.com
                   Port: 7050
-                  ClientTLSCert: crypto-config/ordererOrganizations/trade.com/orderers/orderer.sensor.com/tls/server.crt
-                  ServerTLSCert: crypto-config/ordererOrganizations/trade.com/orderers/orderer.sensor.com/tls/server.crt
+                  ClientTLSCert: crypto-config/ordererOrganizations/sensor.com/orderers/orderer.sensor.com/tls/server.crt
+                  ServerTLSCert: crypto-config/ordererOrganizations/sensor.com/orderers/orderer.sensor.com/tls/server.crt
             Addresses:
                 - orderer.sensor.com:7050
 

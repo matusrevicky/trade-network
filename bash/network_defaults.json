@@ -1,5 +1,5 @@
 {
-    "ExporterOrg": {
+    "HeatingPlantOrg": {
         "peer_ports": [
             {
                 "peer0": 7051
@@ -13,7 +13,7 @@
             }
         ]
     },
-    "ImporterOrg": {
+    "HousingCooperativeOrg": {
         "peer_ports": [
             {
                 "peer0": 8051
@@ -22,34 +22,6 @@
         "cas": [
             {
                 "port": 8054,
-                "admin_user": "admin",
-                "admin_password": "adminpw"
-            }
-        ]
-    },
-    "CarrierOrg": {
-        "peer_ports": [
-            {
-                "peer0": 9051
-            }
-        ],
-        "cas": [
-            {
-                "port": 9054,
-                "admin_user": "admin",
-                "admin_password": "adminpw"
-            }
-        ]
-    },
-    "RegulatorOrg": {
-        "peer_ports": [
-            {
-                "peer0": 10051
-            }
-        ],
-        "cas": [
-            {
-                "port": 10054,
                 "admin_user": "admin",
                 "admin_password": "adminpw"
             }

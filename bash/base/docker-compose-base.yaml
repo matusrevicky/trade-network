@@ -6,16 +6,16 @@ version: '2'
 
 services:
 
-  orderer.store.com:
-    container_name: orderer.store.com
+  orderer.sensor.com:
+    container_name: orderer.sensor.com
     extends:
       file: peer-base.yaml
       service: orderer-base
     volumes:
     - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
-    - ../crypto-config/ordererOrganizations/store.com/orderers/orderer.store.com/msp:/var/hyperledger/orderer/msp
-    - ../crypto-config/ordererOrganizations/store.com/orderers/orderer.store.com/tls/:/var/hyperledger/orderer/tls
-    - orderer.store.com:/var/hyperledger/production/orderer
+    - ../crypto-config/ordererOrganizations/sensor.com/orderers/orderer.sensor.com/msp:/var/hyperledger/orderer/msp
+    - ../crypto-config/ordererOrganizations/sensor.com/orderers/orderer.sensor.com/tls/:/var/hyperledger/orderer/tls
+    - orderer.sensor.com:/var/hyperledger/production/orderer
     ports:
       - 7050:7050
 
@@ -32,7 +32,7 @@ services:
       - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7052
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.heatingplantorg.sensor.com:7051
       - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.heatingplantorg.sensor.com:7051
-      - CORE_PEER_LOCALMSPID=ExporterOrgMSP
+      - CORE_PEER_LOCALMSPID=HeatingPlantOrgMSP
     volumes:
         - $UNIX_SOCK:/host/var/run/docker.sock
         - ../crypto-config/peerOrganizations/heatingplantorg.sensor.com/peers/peer0.heatingplantorg.sensor.com/msp:/etc/hyperledger/fabric/msp
@@ -54,7 +54,7 @@ services:
       - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7052
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.housingcooperativeorg.sensor.com:8051
       - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.housingcooperativeorg.sensor.com:8051
-      - CORE_PEER_LOCALMSPID=ImporterOrgMSP
+      - CORE_PEER_LOCALMSPID=HousingCooperativeOrgMSP
     volumes:
         - $UNIX_SOCK:/host/var/run/docker.sock
         - ../crypto-config/peerOrganizations/housingcooperativeorg.sensor.com/peers/peer0.housingcooperativeorg.sensor.com/msp:/etc/hyperledger/fabric/msp

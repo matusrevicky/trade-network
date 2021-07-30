@@ -20,7 +20,7 @@ services:
     platform: $PLATFORM
     environment:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
-      - FABRIC_CA_SERVER_CA_NAME=ca-exporterorg
+      - FABRIC_CA_SERVER_CA_NAME=ca-housingcooperativeorg
       - FABRIC_CA_SERVER_TLS_ENABLED=true
       - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.housingcooperativeorg.sensor.com-cert.pem
       - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/priv_sk
@@ -28,7 +28,7 @@ services:
       - "7054:7054"
     command: sh -c 'fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.housingcooperativeorg.sensor.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/priv_sk -b admin:adminpw -d'
     volumes:
-      - ./crypto-config/peerOrganizations/exporterorg.trade.com/ca/:/etc/hyperledger/fabric-ca-server-config
+      - ./crypto-config/peerOrganizations/housingcooperativeorg.sensor.com/ca/:/etc/hyperledger/fabric-ca-server-config
       - ca.housingcooperativeorg.sensor.com:/etc/hyperledger/fabric-ca-server
     container_name: ca.housingcooperativeorg.sensor.com
     networks:
@@ -39,7 +39,7 @@ services:
     platform: $PLATFORM
     environment:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
-      - FABRIC_CA_SERVER_CA_NAME=ca-importerorg
+      - FABRIC_CA_SERVER_CA_NAME=ca-heatingplantorg
       - FABRIC_CA_SERVER_TLS_ENABLED=true
       - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.heatingplantorg.sensor.com-cert.pem
       - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/priv_sk
@@ -47,7 +47,7 @@ services:
       - "8054:8054"
     command: sh -c 'fabric-ca-server start --port 8054 --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.heatingplantorg.sensor.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/priv_sk -b admin:adminpw -d'
     volumes:
-      - ./crypto-config/peerOrganizations/importerorg.trade.com/ca/:/etc/hyperledger/fabric-ca-server-config
+      - ./crypto-config/peerOrganizations/heatingplantorg.sensor.com/ca/:/etc/hyperledger/fabric-ca-server-config
       - ca.heatingplantorg.sensor.com:/etc/hyperledger/fabric-ca-server
     container_name: ca.heatingplantorg.sensor.com
     networks:
